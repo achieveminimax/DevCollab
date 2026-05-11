@@ -1697,7 +1697,48 @@ registry.register("test_framework", TestFrameworkTool, ["tester"])
 registry.register("linter", LinterTool, ["reviewer"])
 ```
 
-### C. 相关文档索引
+### C. 项目结构
+
+```
+devcollab/
+├── docker-compose.yml
+├── README.md
+├── backend/
+│   ├── app/
+│   │   ├── main.py                 # FastAPI入口
+│   │   ├── agents/                 # Agent实现
+│   │   │   ├── base.py             # Agent基类
+│   │   │   ├── pm_agent.py
+│   │   │   ├── architect_agent.py
+│   │   │   ├── developer_agent.py
+│   │   │   ├── tester_agent.py
+│   │   │   └── reviewer_agent.py
+│   │   ├── core/                   # 核心模块
+│   │   │   ├── orchestrator.py     # 工作流编排器
+│   │   │   ├── state_manager.py
+│   │   │   ├── message_bus.py
+│   │   │   └── quality_gate.py
+│   │   ├── tools/                  # 工具集
+│   │   ├── memory/                 # 记忆模块
+│   │   ├── api/                    # API路由
+│   │   ├── models/                 # 数据模型
+│   │   └── prompts/                # Prompt模板
+│   └── tests/
+├── frontend/
+│   ├── src/
+│   │   ├── views/                  # 页面视图
+│   │   ├── components/             # 通用组件
+│   │   ├── stores/                 # Pinia状态管理
+│   │   ├── api/                    # API封装
+│   │   ├── composables/            # 组合式函数
+│   │   └── types/                  # TypeScript类型
+│   └── package.json
+└── sandbox/
+    ├── manager.py                  # 沙箱管理器
+    └── executor.py
+```
+
+### D. 相关文档索引
 
 | 文档 | 说明 |
 |------|------|
